@@ -3,7 +3,6 @@ package com.cg.retailapp.model;
 import jakarta.persistence.*;
 
 import java.util.List;
-
 @Entity
 @Table(name = "customer")
 public class Customer {
@@ -15,17 +14,14 @@ public class Customer {
     private String name;
     private String email;
 
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Transaction> transactions;
-
     public Customer() {
     }
 
-    public Customer(Long id, String name, String email, List<Transaction> transactions) {
+    public Customer(Long id, String name, String email) {
         this.id = id;
         this.name = name;
         this.email = email;
-        this.transactions = transactions;
+
     }
 
     public Long getId() {
@@ -52,11 +48,4 @@ public class Customer {
         this.email = email;
     }
 
-    public List<Transaction> getTransactions() {
-        return transactions;
-    }
-
-    public void setTransactions(List<Transaction> transactions) {
-        this.transactions = transactions;
-    }
 }
