@@ -51,7 +51,7 @@ public class TransactionControllerTest {
 
         Transaction transaction = new Transaction();
         transaction.setCustomer(customer);
-        transaction.setAmount(new BigDecimal("120"));
+        transaction.setAmount(120);
         transaction.setTransactionDate(LocalDate.now());
 
         when(customerService.getCustomer(1L)).thenReturn(Optional.of(customer));

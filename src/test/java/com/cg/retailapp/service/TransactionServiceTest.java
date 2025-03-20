@@ -31,7 +31,7 @@ public class TransactionServiceTest {
     @Test
     public void testSaveTransaction_ValidBehaviour() {
         Transaction transaction = new Transaction();
-        transaction.setAmount(new BigDecimal("120"));
+        transaction.setAmount(120.0);
         transaction.setTransactionDate(LocalDate.now());
 
         when(transactionRepository.save(transaction)).thenReturn(transaction);
@@ -39,7 +39,7 @@ public class TransactionServiceTest {
         Transaction savedTransaction = transactionService.saveTransaction(transaction);
 
        // NotNull(savedTransaction);
-        assertEquals(new BigDecimal("120"), savedTransaction.getAmount());
+        assertEquals(120.0, savedTransaction.getAmount());
         assertEquals(LocalDate.now(), savedTransaction.getTransactionDate());
         verify(transactionRepository, times(1)).save(transaction);
     }
@@ -47,7 +47,7 @@ public class TransactionServiceTest {
     @Test
     public void testSaveTransaction_InValidBehaviour() {
         Transaction transaction = new Transaction();
-        transaction.setAmount(new BigDecimal("120"));
+        transaction.setAmount(120.0);
         transaction.setTransactionDate(LocalDate.now());
 
         when(transactionRepository.save(transaction)).thenThrow(new RuntimeException("Database error"));

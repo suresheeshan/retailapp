@@ -44,12 +44,12 @@ public class RewardServiceTest {
 
         Transaction transaction1 = new Transaction();
         transaction1.setCustomer(customer);
-        transaction1.setAmount(new BigDecimal("120"));
+        transaction1.setAmount(120);
         transaction1.setTransactionDate(LocalDate.now().minusDays(10));
 
         Transaction transaction2 = new Transaction();
         transaction2.setCustomer(customer);
-        transaction2.setAmount(new BigDecimal("80"));
+        transaction2.setAmount(80);
         transaction2.setTransactionDate(LocalDate.now().minusDays(20));
 
         when(transactionRepository.findByTransactionDateBetween(any(LocalDate.class), any(LocalDate.class)))
@@ -72,7 +72,7 @@ public class RewardServiceTest {
 
         Transaction transaction = new Transaction();
         transaction.setCustomer(customer);
-        transaction.setAmount(new BigDecimal("120"));
+        transaction.setAmount(120);
         transaction.setTransactionDate(LocalDate.now().minusDays(10));
 
         when(transactionRepository.findByCustomerIdAndTransactionDateBetween(eq(1L), any(LocalDate.class), any(LocalDate.class)))
@@ -102,14 +102,14 @@ public class RewardServiceTest {
 
     @Test
     public void testCalculatePoints_Success() {
-        BigDecimal amount = new BigDecimal("120");
+        Double amount = 120.0;
         int points = rewardService.calculatePoints(amount);
         assertEquals(90, points);
     }
 
     @Test
     public void testCalculatePoints_Failure() {
-        BigDecimal amount = new BigDecimal("40");
+        Double amount = 40.0;
         int points = rewardService.calculatePoints(amount);
         assertEquals(0, points);
     }

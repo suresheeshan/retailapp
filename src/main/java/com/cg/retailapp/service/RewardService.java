@@ -59,9 +59,8 @@ public class RewardService {
 
     }
 
-    public int calculatePoints(BigDecimal amount) {
+    public int calculatePoints(double dollers) {
         int points = 0;
-        double dollers = amount.doubleValue();
 
         if (dollers > 100) {
             points += (dollers - 100) * 2;

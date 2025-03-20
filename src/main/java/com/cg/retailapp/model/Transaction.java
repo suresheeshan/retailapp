@@ -18,14 +18,14 @@ public class Transaction {
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
-    private BigDecimal amount;
+    private double amount;
 
     private LocalDate transactionDate;
 
     public Transaction() {
     }
 
-    public Transaction(Long id, Customer customer, BigDecimal amount, LocalDate transactionDate) {
+    public Transaction(Long id, Customer customer, double amount, LocalDate transactionDate) {
         this.id = id;
         this.customer = customer;
         this.amount = amount;
@@ -48,11 +48,11 @@ public class Transaction {
         this.customer = customer;
     }
 
-    public BigDecimal getAmount() {
+    public double getAmount() {
         return amount;
     }
 
-    public void setAmount(BigDecimal amount) {
+    public void setAmount(double amount) {
         this.amount = amount;
     }
 
