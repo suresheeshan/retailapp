@@ -134,5 +134,3 @@ spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
 - **Suresh**
   - 📧 Contact: [suresh.paruchuri@capgemini.com](mailto:suresh.paruchuri@capgemini.com)
 
-Feel free to contribute! 🚀
-
